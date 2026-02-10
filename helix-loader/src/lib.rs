@@ -70,9 +70,13 @@ fn prioritize_runtime_dirs() -> Vec<PathBuf> {
     let exe_rt_dir = std::env::current_exe()
         .ok()
         .and_then(|path| std::fs::canonicalize(path).ok())
-        .and_then(|path| path.parent().map(|path| path.to_path_buf().join(RT_DIR)))
-        .unwrap();
-    rt_dirs.push(exe_rt_dir);
+        .and_then(|path| path.parent().map(|path| path.to_path_buf().join(RT_DIR)));
+        // FIXME: uncomment this line and use exe_rt_dir value to push into rt_dirs without check
+        //        after https://gitlab.redox-os.org/redox-os/kernel/-/merge_requests/489 will be merged
+        // .unwrap();
+    if let Some(exe_rt_dir) = exe_rt_dir {
+        rt_dirs.push(exe_rt_dir);
+    }
     rt_dirs
 }
 
