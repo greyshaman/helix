@@ -29,7 +29,7 @@ clojure-lsp = { command = "clojure-lsp" }
 cmake-language-server = { command = "cmake-language-server" }
 codeql = { command = "codeql", args = ["execute", "language-server", "--check-errors=ON_CHANGE"] }
 commit-lsp = { command = "commit-lsp", args = ["run"] }
-crystalline = { command = "crystalline", args = ["--stdio"] }
+# crystalline = { command = "crystalline", args = ["--stdio"] }
 cs = { command = "cs", args = ["launch", "--contrib", "smithy-language-server", "--", "0"] }
 csharp-ls = { command = "csharp-ls" }
 cuelsp = { command = "cuelsp" }
@@ -48,7 +48,7 @@ elp = { command = "elp", args = ["server"] }
 elvish = { command = "elvish", args = ["-lsp"] }
 erlang-ls = { command = "erlang_ls" }
 expert = { command = "expert" }
-fennel-ls = { command = "fennel-ls" }
+# fennel-ls = { command = "fennel-ls" }
 fish-lsp = { command = "fish-lsp", args = ["start"] }
 forc = { command = "forc", args = ["lsp"] }
 forth-lsp = { command = "forth-lsp" }
@@ -467,19 +467,19 @@ indent = { tab-width = 2, unit = "  " }
 name = "elixir"
 source = { git = "https://github.com/elixir-lang/tree-sitter-elixir", rev = "02a6f7fd4be28dd94ee4dd2ca19cb777053ea74e" }
 
-[[language]]
-name = "fennel"
-scope = "source.fennel"
-file-types = ["fnl", "fnlm"]
-shebangs = ["fennel"]
-comment-token = ";"
-language-servers = ["fennel-ls"]
-formatter = { command = "fnlfmt", args = ["-"]}
-indent = { tab-width = 2, unit = "  " }
+# [[language]]
+# name = "fennel"
+# scope = "source.fennel"
+# file-types = ["fnl", "fnlm"]
+# shebangs = ["fennel"]
+# comment-token = ";"
+# language-servers = ["fennel-ls"]
+# formatter = { command = "fnlfmt", args = ["-"]}
+# indent = { tab-width = 2, unit = "  " }
 
-[[grammar]]
-name = "fennel"
-source = { git = "https://github.com/alexmozaidze/tree-sitter-fennel", rev = "cfbfa478dc2dbef267ee94ae4323d9c886f45e94" }
+# [[grammar]]
+# name = "fennel"
+# source = { git = "https://github.com/alexmozaidze/tree-sitter-fennel", rev = "cfbfa478dc2dbef267ee94ae4323d9c886f45e94" }
 
 [[language]]
 name = "fish"
@@ -731,19 +731,19 @@ args = { console = "internalConsole", attachCommands = [ "platform select remote
 name = "cpp"
 source = { git = "https://github.com/tree-sitter/tree-sitter-cpp", rev = "56455f4245baf4ea4e0881c5169de69d7edd5ae7" }
 
-[[language]]
-name = "crystal"
-scope = "source.cr"
-file-types = ["cr"]
-roots = ["shard.yml", "shard.lock"]
-comment-token = "#"
-indent = { tab-width = 2, unit = "  " }
-language-servers = [ "crystalline", "ameba-ls" ]
-formatter = { command = "crystal", args = ["tool", "format", "-"] }
+# [[language]]
+# name = "crystal"
+# scope = "source.cr"
+# file-types = ["cr"]
+# roots = ["shard.yml", "shard.lock"]
+# comment-token = "#"
+# indent = { tab-width = 2, unit = "  " }
+# language-servers = [ "crystalline", "ameba-ls" ]
+# formatter = { command = "crystal", args = ["tool", "format", "-"] }
 
-[[grammar]]
-name = "crystal"
-source = { git = "https://github.com/crystal-lang-tools/tree-sitter-crystal", rev = "76afc1f53518a2b68b51a5abcde01d268a9cb47c" }
+# [[grammar]]
+# name = "crystal"
+# source = { git = "https://github.com/crystal-lang-tools/tree-sitter-crystal", rev = "76afc1f53518a2b68b51a5abcde01d268a9cb47c" }
 
 [[language]]
 name = "c-sharp"
