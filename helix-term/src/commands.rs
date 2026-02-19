@@ -6507,11 +6507,13 @@ fn suspend(_cx: &mut Context) {
     {
         // SAFETY: These are calls to standard POSIX functions.
         // Unsafe is necessary since we are calling outside of Rust.
-        #[cfg(not(target_os = "redox"))]
-        let is_session_leader = unsafe { libc::getpid() == libc::getsid(0) };
-        // FIXME: remove this block when redox will support getsid()
+         #[cfg(not(target_os = "redox"))]
+        let sid = unsafe { libc::getsid(0) };
+
         #[cfg(target_os = "redox")]
-        let is_session_leader = true;
+        let sid = unsafe { crate::platform::redox::getsid(0) };
+
+        let is_session_leader = unsafe { libc::getpid() == sid };
 
         // If helix is the session leader, there is nothing to suspend to, so skip
         if is_session_leader {
