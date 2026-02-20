@@ -6511,7 +6511,7 @@ fn suspend(_cx: &mut Context) {
         let sid = unsafe { libc::getsid(0) };
 
         #[cfg(target_os = "redox")]
-        let sid = unsafe { crate::platform::redox::getsid(0) };
+        let sid = unsafe { crate::platform::getsid(0) };
 
         let is_session_leader = unsafe { libc::getpid() == sid };
 
